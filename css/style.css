@@ -8364,6 +8364,11 @@ html.mobile .ui-to-top,
 html.tablet .ui-to-top {
 	display: none !important;
 }
+.ui-to-top::before {
+    content: "↑"; /* Or any content you want */
+    display: inline-block;
+    margin-right: 5px;
+}
 
 @media (min-width: 576px) {
 	.ui-to-top {
