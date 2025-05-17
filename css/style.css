@@ -4635,8 +4635,8 @@ a.thumbnail-thin {
 	html:not(.tablet):not(.mobile) .thumbnail-thin:hover::before {
 		transform: scale(1, 1);
 	}
-} */
-
+} 
+*/
 
 .thumbnail-thin {
     position: relative;
@@ -4714,6 +4714,26 @@ a.thumbnail-thin {
     html:not(.tablet):not(.mobile) .thumbnail-thin:hover::after {
         opacity: 0; /* Ensure no opacity on hover */
         transform: scale(1, 1); /* Ensure no scaling effect */
+    }
+}
+
+/* For mobile and tablet screens, remove the box and hover effect */
+@media (max-width: 991px) {
+    /* Remove the background box from the image on mobile */
+    .thumbnail-thin::before {
+        display: none !important; /* Hide the box */
+    }
+
+    /* Remove the icon inside the box on mobile */
+    .thumbnail-thin::after {
+        display: none !important; /* Hide the icon */
+    }
+
+    /* Ensure no hover effect on mobile */
+    .thumbnail-thin:hover::before,
+    .thumbnail-thin:hover::after {
+        opacity: 0;
+        transform: scale(1, 1);
     }
 }
 
