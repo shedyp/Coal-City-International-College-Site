@@ -1234,3 +1234,38 @@
 
 	});
 }());
+
+
+
+
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        items: 2,  // Default number of items
+        loop: false,
+        margin: 10,
+        stagePadding: 0,
+        smartSpeed: 450,
+        responsive: {
+            0: {
+                items: 2
+            },
+            480: {
+                items: 3
+            },
+            768: {
+                items: 4
+            },
+            992: {
+                items: 5
+            },
+            1200: {
+                items: 6
+            }
+        }
+    });
+    
+    // Initialize LightGallery for the image gallery
+    lightGallery(document.querySelector('.owl-carousel'), {
+        selector: '.thumbnail-thin',
+    });
+});

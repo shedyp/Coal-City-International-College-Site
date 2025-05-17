@@ -4558,7 +4558,7 @@ p.quote-classic-cite {
 	}
 }
 
-.thumbnail-thin {
+/* .thumbnail-thin {
 	position: relative;
 	overflow: hidden;
 	padding-bottom: 100%;
@@ -4635,6 +4635,86 @@ a.thumbnail-thin {
 	html:not(.tablet):not(.mobile) .thumbnail-thin:hover::before {
 		transform: scale(1, 1);
 	}
+} */
+
+
+.thumbnail-thin {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100%;
+}
+
+.thumbnail-thin::before, .thumbnail-thin::after {
+    pointer-events: none;
+}
+
+.thumbnail-thin::before {
+    content: '';
+    position: absolute;
+    top: 6.25%;
+    right: 6.25%;
+    bottom: 6.25%;
+    left: 6.25%;
+    z-index: 1;
+    background: rgba(255, 178, 98, 0.3);
+}
+
+.thumbnail-thin::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 2;
+    content: '\f504';
+    font-family: 'Material Design Icons';
+    font-size: 40px;
+    line-height: 1;
+    color: #ffffff;
+}
+
+a.thumbnail-thin {
+    display: block;
+}
+
+.thumbnail-thin-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+}
+
+@supports (object-fit: cover) {
+    .thumbnail-thin-image {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+/* Remove hover effect */
+@media (min-width: 992px) {
+    html:not(.tablet):not(.mobile) .thumbnail-thin::before, 
+    html:not(.tablet):not(.mobile) .thumbnail-thin::after {
+        opacity: 0; /* Initially hide the effect */
+        transform: scale(1, 1); /* Ensure no scaling on hover */
+        transition: none; /* Disable transition effects */
+    }
+
+    /* Remove hover styles */
+    html:not(.tablet):not(.mobile) .thumbnail-thin:hover::before,
+    html:not(.tablet):not(.mobile) .thumbnail-thin:hover::after {
+        opacity: 0; /* Ensure no opacity on hover */
+        transform: scale(1, 1); /* Ensure no scaling effect */
+    }
 }
 
 .thumbnail-light {
